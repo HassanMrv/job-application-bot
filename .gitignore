@@ -2,6 +2,7 @@ node_modules/
 .env
 dist/
 data/
+reports/
 *.sqlite
 *.sqlite-shm
 *.sqlite-wal

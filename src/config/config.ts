@@ -62,6 +62,8 @@ export const config = {
     minimumProfileCompletion: numberEnv("MINIMUM_PROFILE_COMPLETION", 80),
     requestDelayMs: numberEnv("REQUEST_DELAY_MS", 500),
     databasePath: resolve(stringEnv("DATABASE_PATH", "data/applications.sqlite")),
+    reportDirectory: resolve(stringEnv("REPORT_DIRECTORY", "reports")),
+    reportTimezone: stringEnv("REPORT_TIMEZONE", "Asia/Tehran"),
   },
   jobvision:
     platform === "jobvision"

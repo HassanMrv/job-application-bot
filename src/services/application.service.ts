@@ -12,6 +12,7 @@ export class ApplicationService {
     private readonly platform: JobPlatform,
     private readonly repository: ApplicationRepository,
     private readonly mode: ExecutionMode,
+    private readonly runId: number,
   ) {}
 
   async apply(job: Job): Promise<ApplicationResult> {
@@ -28,6 +29,7 @@ export class ApplicationService {
 
   log(job: Job, status: ApplicationStatus, reasons: string[]): void {
     const entry: ApplicationLogEntry = {
+      runId: this.runId,
       platform: job.platform,
       externalId: job.externalId,
       title: job.title,

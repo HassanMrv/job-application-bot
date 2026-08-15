@@ -94,6 +94,10 @@ JOB_PAGE_SIZE=30
 JOB_MAX_PAGES=1
 REQUEST_DELAY_MS=500
 DATABASE_PATH=data/applications.sqlite
+
+# Excel reporting
+REPORT_DIRECTORY=reports
+REPORT_TIMEZONE=Asia/Tehran
 ```
 
 `JOB_KEYWORDS` uses OR logic: a job qualifies when its title/description/seniority contains at least one configured term. Any excluded keyword rejects it. Remote jobs can be anywhere; non-remote jobs must match one of `JOB_ONSITE_CITIES`.
@@ -142,6 +146,32 @@ SQLite data is stored at `data/applications.sqlite` by default. Every evaluated 
 - timestamp.
 
 Only a successful `applied` record permanently suppresses another submission. Dry-run and review entries can later be processed in automatic mode. Jobs reported as already applied by the platform are also skipped.
+
+Each execution is stored as a distinct run, including its start/end time, result, configuration,
+discovered-job count, outcome totals, and fatal error when applicable. At the end of every run,
+the bot automatically writes `reports/run-000001.xlsx` (using the corresponding run ID). Each
+workbook contains `Summary`, `Runs`, and `Jobs` sheets.
+
+Export the complete database history, including legacy records that predate run tracking:
+
+```bash
+npm run report -- all
+```
+
+Export all runs and job events that occurred on a specific local calendar day:
+
+```bash
+npm run report -- day 2026-08-15
+```
+
+Export one run again by its ID:
+
+```bash
+npm run report -- run 1
+```
+
+Day boundaries and displayed timestamps use `REPORT_TIMEZONE` (`Asia/Tehran` by default).
+Reports are written under `REPORT_DIRECTORY` (`reports` by default).
 
 Example inspection with the SQLite CLI:
 

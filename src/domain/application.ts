@@ -10,6 +10,7 @@ export type ApplicationStatus =
   | "failed";
 
 export interface ApplicationLogEntry {
+  runId: number | null;
   platform: PlatformId;
   externalId: string;
   title: string;
@@ -18,4 +19,31 @@ export interface ApplicationLogEntry {
   reasons: string[];
   matchingScore: number | null;
   occurredAt: string;
+}
+
+export type BotRunStatus = "running" | "completed" | "failed";
+
+export interface BotRun {
+  id: number;
+  startedAt: string;
+  finishedAt: string | null;
+  status: BotRunStatus;
+  platform: PlatformId;
+  executionMode: ExecutionMode;
+  configuration: Record<string, unknown>;
+  discoveredCount: number;
+  processedCount: number;
+  appliedCount: number;
+  skippedCount: number;
+  dryRunCount: number;
+  reviewCount: number;
+  failedCount: number;
+  fatalError: string | null;
+}
+
+export interface StartBotRun {
+  platform: PlatformId;
+  executionMode: ExecutionMode;
+  configuration: Record<string, unknown>;
+  startedAt: string;
 }
