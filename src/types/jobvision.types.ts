@@ -7,7 +7,9 @@ export interface JobVisionListResponse {
 }
 
 export interface JobVisionJobList {
-    items: JobVisionJob[];
+    currentPage: number;
+    pageSize: number;
+    jobPosts: JobVisionJob[];
     filters: JobVisionFilters;
     searchId: string;
     jobPostCount: number;

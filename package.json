@@ -1,14 +1,16 @@
 {
-  "name": "jobvision-bot",
+  "name": "job-application-bot",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Extensible multi-platform automatic job application bot",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx watch src/index.ts",
-    "start": "tsx src/index.ts"
+    "start": "tsx src/index.ts",
+    "test": "node --import tsx --test test/**/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc"
   },
-  "keywords": [],
+  "keywords": ["jobs", "automation", "jobvision", "typescript"],
   "author": "",
   "license": "ISC",
   "type": "module",
