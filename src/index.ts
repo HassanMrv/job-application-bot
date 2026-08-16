@@ -14,11 +14,15 @@ async function main(): Promise<void> {
     executionMode: config.bot.mode,
     startedAt: new Date().toISOString(),
     configuration: {
-      keywords: config.bot.keywords,
-      excludedKeywords: config.bot.excludedKeywords,
+      technologies: config.bot.technologies,
+      searchKeywords: config.bot.searchKeywords,
+      acceptedSeniorities: config.bot.acceptedSeniorities,
+      allowNative: config.bot.allowNative,
+      allowFullStack: config.bot.allowFullStack,
+      backendTechnologies: config.bot.backendTechnologies,
+      maxFullStackBackendTechnologies: config.bot.maxFullStackBackendTechnologies,
       onsiteCities: config.bot.onsiteCities,
       allowRemoteEverywhere: config.bot.allowRemoteEverywhere,
-      minMatchScore: config.bot.minMatchScore,
       minimumProfileCompletion: config.bot.minimumProfileCompletion,
       pageSize: config.bot.pageSize,
       maxPages: config.bot.maxPages,
@@ -31,15 +35,19 @@ async function main(): Promise<void> {
   try {
     const platform = createPlatform();
     const matcher = new JobMatcherService({
-      keywords: config.bot.keywords,
-      excludedKeywords: config.bot.excludedKeywords,
+      technologies: config.bot.technologies,
+      acceptedSeniorities: config.bot.acceptedSeniorities,
+      allowNative: config.bot.allowNative,
+      allowFullStack: config.bot.allowFullStack,
+      backendTechnologies: config.bot.backendTechnologies,
+      maxFullStackBackendTechnologies: config.bot.maxFullStackBackendTechnologies,
       onsiteCities: config.bot.onsiteCities,
       allowRemoteEverywhere: config.bot.allowRemoteEverywhere,
-      minMatchScore: config.bot.minMatchScore,
     });
+    
     const bot = new BotService(platform, matcher, repository, {
       mode: config.bot.mode,
-      keywords: config.bot.keywords,
+      keywords: config.bot.searchKeywords,
       pageSize: config.bot.pageSize,
       maxPages: config.bot.maxPages,
       minimumProfileCompletion: config.bot.minimumProfileCompletion,

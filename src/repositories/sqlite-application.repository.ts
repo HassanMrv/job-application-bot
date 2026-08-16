@@ -40,6 +40,8 @@ export class SqliteApplicationRepository implements ApplicationRepository {
         status TEXT NOT NULL,
         reasons TEXT NOT NULL,
         matching_score REAL,
+        our_score REAL,
+        jobvision_score REAL,
         occurred_at TEXT NOT NULL,
         run_id INTEGER REFERENCES bot_runs(id)
       );
@@ -49,6 +51,12 @@ export class SqliteApplicationRepository implements ApplicationRepository {
     const columns = this.database.prepare("PRAGMA table_info(application_log)").all() as Array<{ name: string }>;
     if (!columns.some((column) => column.name === "run_id")) {
       this.database.exec("ALTER TABLE application_log ADD COLUMN run_id INTEGER REFERENCES bot_runs(id)");
+    }
+    if (!columns.some((column) => column.name === "our_score")) {
+      this.database.exec("ALTER TABLE application_log ADD COLUMN our_score REAL");
+    }
+    if (!columns.some((column) => column.name === "jobvision_score")) {
+      this.database.exec("ALTER TABLE application_log ADD COLUMN jobvision_score REAL");
     }
     this.database.exec("CREATE INDEX IF NOT EXISTS idx_application_run ON application_log(run_id)");
   }
@@ -69,8 +77,8 @@ export class SqliteApplicationRepository implements ApplicationRepository {
     this.database
       .prepare(`
         INSERT INTO application_log
-          (platform, external_id, title, company, status, reasons, matching_score, occurred_at, run_id)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+          (platform, external_id, title, company, status, reasons, our_score, jobvision_score, occurred_at, run_id)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
       `)
       .run(
         entry.platform,
@@ -79,7 +87,8 @@ export class SqliteApplicationRepository implements ApplicationRepository {
         entry.company,
         entry.status,
         JSON.stringify(entry.reasons),
-        entry.matchingScore,
+        entry.ourScore,
+        entry.jobVisionScore,
         entry.occurredAt,
         entry.runId,
       );
@@ -140,7 +149,8 @@ export class SqliteApplicationRepository implements ApplicationRepository {
       company: row.company,
       status: row.status,
       reasons: JSON.parse(row.reasons) as string[],
-      matchingScore: row.matching_score,
+      ourScore: row.our_score,
+      jobVisionScore: row.jobvision_score ?? row.matching_score,
       occurredAt: row.occurred_at,
     }));
   }
@@ -192,5 +202,7 @@ interface LogRow {
   status: ApplicationStatus;
   reasons: string;
   matching_score: number | null;
+  our_score: number | null;
+  jobvision_score: number | null;
   occurred_at: string;
 }

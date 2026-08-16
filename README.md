@@ -8,9 +8,9 @@ The bot is intentionally safe by default: a new installation uses `dry-run` mode
 
 - Runs one configured job platform per execution.
 - Converts platform-specific responses into one normalized job model.
-- Searches for `front`, `react`, and `next` jobs by default.
+- Searches configurable frontend technologies and English/Persian frontend terms.
 - Allows onsite roles only in Tehran and remote roles anywhere.
-- Rejects jobs containing `junior` by default.
+- Accepts only configured seniority levels from the title/platform seniority field.
 - Rejects expired, previously applied, and unsupported external-application jobs.
 - Blocks the complete run when JobVision CV completion is below 80%.
 - Supports `dry-run`, `review`, and `automatic` modes.
@@ -78,20 +78,22 @@ JOB_PLATFORM=jobvision
 # dry-run | review | automatic
 APPLICATION_MODE=dry-run
 
-# Comma-separated, case-insensitive rules
-JOB_KEYWORDS=front,react,next
-JOB_EXCLUDED_KEYWORDS=junior
+# Comma-separated, case-insensitive matching and discovery rules
+JOB_TECHNOLOGIES=react,next.js,typescript,vue
+JOB_SEARCH_KEYWORDS=react,next.js,typescript,vue,frontend,فرانت‌اند
+JOB_ACCEPTED_SENIORITIES=mid,senior
+JOB_ALLOW_NATIVE=false
+JOB_ALLOW_FULLSTACK=true
+JOB_BACKEND_TECHNOLOGIES=node.js,python,django,.net,java,php,laravel,go,ruby
+JOB_MAX_FULLSTACK_BACKEND_TECHNOLOGIES=1
 JOB_ONSITE_CITIES=tehran
 JOB_ALLOW_REMOTE_EVERYWHERE=true
-
-# A platform match score is checked when the platform supplies one
-JOB_MIN_MATCH_SCORE=0
 
 # Blocks the run before searching when platform profile completion is lower
 MINIMUM_PROFILE_COMPLETION=80
 
 JOB_PAGE_SIZE=30
-JOB_MAX_PAGES=1
+JOB_MAX_PAGES=10
 REQUEST_DELAY_MS=500
 DATABASE_PATH=data/applications.sqlite
 
@@ -100,7 +102,11 @@ REPORT_DIRECTORY=reports
 REPORT_TIMEZONE=Asia/Tehran
 ```
 
-`JOB_KEYWORDS` uses OR logic: a job qualifies when its title/description/seniority contains at least one configured term. Any excluded keyword rejects it. Remote jobs can be anywhere; non-remote jobs must match one of `JOB_ONSITE_CITIES`.
+`JOB_TECHNOLOGIES` uses OR logic and understands common aliases such as React.js, Next.js, JS, TS, and Vue.js. Every selected technology is automatically used for discovery; `JOB_SEARCH_KEYWORDS` adds extra platform search phrases. A role must be identified from its title as frontend or as a selected-technology developer role; a generic Software Engineer title does not qualify only because React appears in its requirements. Persian frontend title variants are recognized.
+
+Seniority is classified from the title and platform seniority—not arbitrary description text. `JOB_ACCEPTED_SENIORITIES` supports `intern`, `junior`, `mid`, `senior`, `lead`, and `unknown`. Native/mobile roles and full-stack roles have separate switches. Full-stack jobs are rejected when the number of configured backend technologies exceeds `JOB_MAX_FULLSTACK_BACKEND_TECHNOLOGIES`.
+
+Remote jobs can be anywhere; onsite and hybrid jobs must match `JOB_ONSITE_CITIES`. JobVision's score is logged separately and never controls acceptance. The bot calculates its own explainable score and stores the evidence behind every decision.
 
 ### JobVision-specific settings
 
@@ -143,7 +149,7 @@ SQLite data is stored at `data/applications.sqlite` by default. Every evaluated 
 - title and company;
 - status (`skipped`, `dry-run`, `review`, `applied`, or `failed`);
 - decision/error reasons;
-- platform matching score when available;
+- our explainable match score and the separate JobVision score;
 - timestamp.
 
 Only a successful `applied` record permanently suppresses another submission. Dry-run and review entries can later be processed in automatic mode. Jobs reported as already applied by the platform are also skipped.

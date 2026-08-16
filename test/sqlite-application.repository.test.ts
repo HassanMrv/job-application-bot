@@ -21,7 +21,8 @@ describe("SqliteApplicationRepository", () => {
       company: "Example",
       status: "dry-run",
       reasons: [],
-      matchingScore: 90,
+      ourScore: 90,
+      jobVisionScore: 70,
       occurredAt: "2026-08-15T10:00:01.000Z",
     });
     repository.finishRun(runId, "completed");
@@ -32,6 +33,8 @@ describe("SqliteApplicationRepository", () => {
     assert.equal(run?.processedCount, 1);
     assert.equal(run?.dryRunCount, 1);
     assert.equal(repository.listEntries(runId)[0]?.runId, runId);
+    assert.equal(repository.listEntries(runId)[0]?.ourScore, 90);
+    assert.equal(repository.listEntries(runId)[0]?.jobVisionScore, 70);
     repository.close();
   });
 
@@ -45,7 +48,8 @@ describe("SqliteApplicationRepository", () => {
       company: "Example",
       status: "review",
       reasons: [],
-      matchingScore: 90,
+      ourScore: 90,
+      jobVisionScore: 70,
       occurredAt: new Date().toISOString(),
     });
     assert.equal(repository.hasFinalRecord("jobvision", "42"), false);
@@ -57,7 +61,8 @@ describe("SqliteApplicationRepository", () => {
       company: "Example",
       status: "applied",
       reasons: [],
-      matchingScore: 90,
+      ourScore: 90,
+      jobVisionScore: 70,
       occurredAt: new Date().toISOString(),
     });
     assert.equal(repository.hasFinalRecord("jobvision", "42"), true);

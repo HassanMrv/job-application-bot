@@ -60,7 +60,8 @@ export class BotService {
           company: summary.company,
           status: "skipped",
           reasons: [summary.alreadyApplied ? "already applied on platform" : "already applied in local history"],
-          matchingScore: null,
+          ourScore: null,
+          jobVisionScore: null,
           occurredAt: new Date().toISOString(),
         });
         console.log(`SKIP ${summary.externalId} ${summary.title} — already handled`);
@@ -71,10 +72,10 @@ export class BotService {
         const job = await this.platform.getJob(summary);
         const decision = this.matcher.evaluate(job);
         if (!decision.shouldApply) {
-          this.applications.log(job, "skipped", decision.reasons);
+          this.applications.log(job, "skipped", decision.reasons, decision.score, decision.evidence);
           console.log(`SKIP ${job.externalId} ${job.title} — ${decision.reasons.join(", ")}`);
         } else {
-          const result = await this.applications.apply(job);
+          const result = await this.applications.apply(job, decision.score, decision.evidence);
           console.log(`${result.status.toUpperCase()} ${job.externalId} ${job.title}`);
         }
       } catch (error) {
@@ -92,7 +93,8 @@ export class BotService {
           company: summary.company,
           status: "failed",
           reasons: [message],
-          matchingScore: null,
+          ourScore: null,
+          jobVisionScore: null,
           occurredAt: new Date().toISOString(),
         });
       }

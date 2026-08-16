@@ -148,7 +148,8 @@ export class ReportService {
       { header: "Status", key: "status", width: 12 },
       { header: "Title", key: "title", width: 45 },
       { header: "Company", key: "company", width: 35 },
-      { header: "Match score", key: "matchingScore", width: 14 },
+      { header: "Our score", key: "ourScore", width: 12 },
+      { header: "JobVision score", key: "jobVisionScore", width: 16 },
       { header: "Reasons / error", key: "reasons", width: 70 },
     ];
     jobs.addRows(entries.map((entry) => ({
@@ -159,7 +160,8 @@ export class ReportService {
       status: entry.status,
       title: entry.title,
       company: entry.company,
-      matchingScore: entry.matchingScore,
+      ourScore: entry.ourScore,
+      jobVisionScore: entry.jobVisionScore,
       reasons: entry.reasons.join("; "),
     })));
 

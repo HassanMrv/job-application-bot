@@ -15,7 +15,7 @@ export class ApplicationService {
     private readonly runId: number,
   ) {}
 
-  async apply(job: Job): Promise<ApplicationResult> {
+  async apply(job: Job, score: number, evidence: string[]): Promise<ApplicationResult> {
     let status: ApplicationResult["status"];
     if (this.mode === "automatic") {
       await this.platform.apply(job);
@@ -23,11 +23,11 @@ export class ApplicationService {
     } else {
       status = this.mode;
     }
-    this.log(job, status, []);
+    this.log(job, status, [], score, evidence);
     return { status };
   }
 
-  log(job: Job, status: ApplicationStatus, reasons: string[]): void {
+  log(job: Job, status: ApplicationStatus, reasons: string[], ourScore: number, evidence: string[]): void {
     const entry: ApplicationLogEntry = {
       runId: this.runId,
       platform: job.platform,
@@ -35,8 +35,9 @@ export class ApplicationService {
       title: job.title,
       company: job.company,
       status,
-      reasons,
-      matchingScore: job.matchingScore,
+      reasons: [...reasons, ...evidence.map((item) => `evidence: ${item}`)],
+      ourScore,
+      jobVisionScore: job.platform === "jobvision" ? job.platformScore : null,
       occurredAt: new Date().toISOString(),
     };
     this.repository.save(entry);

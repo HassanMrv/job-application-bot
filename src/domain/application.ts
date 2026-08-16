@@ -17,7 +17,8 @@ export interface ApplicationLogEntry {
   company: string;
   status: ApplicationStatus;
   reasons: string[];
-  matchingScore: number | null;
+  ourScore: number | null;
+  jobVisionScore: number | null;
   occurredAt: string;
 }
 

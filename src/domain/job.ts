@@ -18,11 +18,14 @@ export interface Job extends JobSummary {
   isExpired: boolean;
   isExternalApplication: boolean;
   seniority: string | null;
-  matchingScore: number | null;
+  requiredExperienceYears: number | null;
+  categories: string[];
+  technologies: string[];
+  platformScore: number | null;
   raw: unknown;
 }
 
-export interface jobCategoryUrlTitleJobSearchQuery {
+export interface JobSearchQuery {
   keywords: string[];
   pageSize: number;
   maxPages: number;

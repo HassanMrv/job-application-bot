@@ -30,6 +30,14 @@ function listEnv(name: string, fallback: string[]): string[] {
   return raw ? raw.split(",").map((value) => value.trim()).filter(Boolean) : fallback;
 }
 
+function booleanEnv(name: string, fallback: boolean): boolean {
+  const value = process.env[name]?.trim().toLowerCase();
+  if (value == null || value === "") return fallback;
+  if (["true", "1", "yes"].includes(value)) return true;
+  if (["false", "0", "no"].includes(value)) return false;
+  throw new Error(`${name} must be true or false`);
+}
+
 function enumEnv<T extends string>(name: string, values: readonly T[], fallback: T): T {
   const value = stringEnv(name, fallback);
   if (!values.includes(value as T)) {
@@ -43,6 +51,20 @@ const platform = enumEnv<PlatformId>(
   ["jobvision", "jobinja", "irantalent", "glassdoor"],
   "jobvision",
 );
+const technologies = listEnv("JOB_TECHNOLOGIES", listEnv("JOB_KEYWORDS", ["react", "next.js", "typescript", "vue"]));
+const searchKeywords = [...new Set([
+  ...technologies,
+  ...listEnv("JOB_SEARCH_KEYWORDS", []),
+  "frontend",
+  "فرانت‌اند",
+])];
+const acceptedSeniorities = listEnv("JOB_ACCEPTED_SENIORITIES", ["mid", "senior"]);
+const validSeniorities = ["intern", "junior", "mid", "senior", "lead", "unknown"] as const;
+for (const seniority of acceptedSeniorities) {
+  if (!validSeniorities.includes(seniority as (typeof validSeniorities)[number])) {
+    throw new Error(`Invalid JOB_ACCEPTED_SENIORITIES value: ${seniority}`);
+  }
+}
 
 export const config = {
   bot: {
@@ -52,13 +74,17 @@ export const config = {
       ["dry-run", "review", "automatic"],
       "dry-run",
     ),
-    keywords: listEnv("JOB_KEYWORDS", ["front", "react", "next"]),
-    excludedKeywords: listEnv("JOB_EXCLUDED_KEYWORDS", ["junior"]),
+    technologies,
+    searchKeywords,
+    acceptedSeniorities: acceptedSeniorities as Array<(typeof validSeniorities)[number]>,
+    allowNative: booleanEnv("JOB_ALLOW_NATIVE", false),
+    allowFullStack: booleanEnv("JOB_ALLOW_FULLSTACK", true),
+    backendTechnologies: listEnv("JOB_BACKEND_TECHNOLOGIES", ["node.js", "python", "django", ".net", "java", "php", "laravel", "go", "ruby"]),
+    maxFullStackBackendTechnologies: numberEnv("JOB_MAX_FULLSTACK_BACKEND_TECHNOLOGIES", 1),
     onsiteCities: listEnv("JOB_ONSITE_CITIES", ["tehran"]),
-    allowRemoteEverywhere: stringEnv("JOB_ALLOW_REMOTE_EVERYWHERE", "true") === "true",
+    allowRemoteEverywhere: booleanEnv("JOB_ALLOW_REMOTE_EVERYWHERE", true),
     pageSize: numberEnv("JOB_PAGE_SIZE", 30),
-    maxPages: numberEnv("JOB_MAX_PAGES", 1),
-    minMatchScore: numberEnv("JOB_MIN_MATCH_SCORE", 0),
+    maxPages: numberEnv("JOB_MAX_PAGES", 10),
     minimumProfileCompletion: numberEnv("MINIMUM_PROFILE_COMPLETION", 80),
     requestDelayMs: numberEnv("REQUEST_DELAY_MS", 500),
     databasePath: resolve(stringEnv("DATABASE_PATH", "data/applications.sqlite")),

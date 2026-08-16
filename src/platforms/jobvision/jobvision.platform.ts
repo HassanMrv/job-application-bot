@@ -42,7 +42,15 @@ function normalizeJob(details: JobVisionJobDetails): Job {
     isExpired: details.isExpired,
     isExternalApplication: Boolean(details.linkOutAddress),
     seniority: details.seniorityLevel.titleEn || details.seniorityLevel.titleFa,
-    matchingScore: details.userJobPostInfo.matchingScore,
+    requiredExperienceYears: details.requiredRelatedExperienceYears,
+    categories: details.jobCategories.flatMap((category) =>
+      [category.title, category.titleFa, category.titleEn].filter((value): value is string => Boolean(value)),
+    ),
+    technologies: details.softwareRequirements.flatMap((requirement) =>
+      [requirement.software.title, requirement.software.titleFa, requirement.software.titleEn]
+        .filter((value): value is string => Boolean(value)),
+    ),
+    platformScore: details.userJobPostInfo.matchingScore,
     raw: details,
   };
 }
@@ -87,7 +95,7 @@ export class JobVisionPlatform implements JobPlatform {
   async apply(job: Job): Promise<ApplicationReceipt> {
     const response = await this.client.apply({
       jobPostId: Number(job.externalId),
-      userJobPostMatchScore: job.matchingScore ?? 0,
+      userJobPostMatchScore: job.platformScore ?? 0,
     });
     return { platform: this.id, externalId: job.externalId, message: response.message };
   }
