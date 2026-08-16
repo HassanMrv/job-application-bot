@@ -107,6 +107,7 @@ REPORT_TIMEZONE=Asia/Tehran
 ```dotenv
 JOBVISION_BASE_URL=https://candidateapi.jobvision.ir
 JOBVISION_WEB_APP_VERSION=19.0.153
+jobCategoryUrlTitle=web-programming
 ```
 
 Authentication is token-based for now. Sign-in and CAPTCHA/session automation are deliberately outside the current implementation.

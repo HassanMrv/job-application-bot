@@ -1,0 +1,541 @@
+[
+    {
+        "urlTitle": "sales",
+        "id": 9,
+        "title": "فروش و بازاریابی - سطوح کارشناسی و مدیریتی",
+        "titleFa": "فروش و بازاریابی - سطوح کارشناسی و مدیریتی",
+        "titleEn": "Sales and Marketing - Specialist and Manager"
+    },
+    {
+        "urlTitle": "visitor",
+        "id": 203,
+        "title": "فروش و بازاریابی - فروشنده / بازاریاب و ویزیتور / صندوقدار",
+        "titleFa": "فروش و بازاریابی - فروشنده / بازاریاب و ویزیتور / صندوقدار",
+        "titleEn": "Sales and Marketing - Seller, Visitor and Cashier"
+    },
+    {
+        "urlTitle": "store-executive",
+        "id": 179,
+        "title": "مدیر فروشگاه / مدیر رستوران",
+        "titleFa": "مدیر فروشگاه / مدیر رستوران",
+        "titleEn": "Store executive"
+    },
+    {
+        "urlTitle": "customer-support",
+        "id": 34,
+        "title": "خدمات و پشتیبانی مشتریان",
+        "titleFa": "خدمات و پشتیبانی مشتریان",
+        "titleEn": "Customer Support / Account Management"
+    },
+    {
+        "urlTitle": "medrep",
+        "id": 181,
+        "title": "نماینده علمی / مدرپ",
+        "titleFa": "نماینده علمی / مدرپ",
+        "titleEn": "Medical Represantative"
+    },
+    {
+        "urlTitle": "insurance",
+        "id": 259,
+        "title": "مدیریت بیمه",
+        "titleFa": "مدیریت بیمه",
+        "titleEn": "Insurance Management"
+    },
+    {
+        "urlTitle": "digital-marketing",
+        "id": 176,
+        "title": "دیجیتال مارکتینگ و سئو",
+        "titleFa": "دیجیتال مارکتینگ و سئو",
+        "titleEn": "Digital Marketing / SEO"
+    },
+    {
+        "urlTitle": "content",
+        "id": 33,
+        "title": "ترجمه / تولید محتوا / نویسندگی و ویراستاری",
+        "titleFa": "ترجمه / تولید محتوا / نویسندگی و ویراستاری",
+        "titleEn": "Translation / Content Provider"
+    },
+    {
+        "urlTitle": "developer",
+        "id": 30,
+        "title": "توسعه نرم افزار و برنامه نویسی",
+        "titleFa": "توسعه نرم افزار و برنامه نویسی",
+        "titleEn": "IT - Software Development (Web,Moblie,…)"
+    },
+    {
+        "urlTitle": "software-qa",
+        "id": 261,
+        "title": "تست نرم افزار",
+        "titleFa": "تست نرم افزار",
+        "titleEn": "Software Quality Assurance"
+    },
+    {
+        "urlTitle": "network",
+        "id": 29,
+        "title": "شبکه / DevOps / پشتیبانی سخت افزاری و نرم افزاری",
+        "titleFa": "شبکه / DevOps / پشتیبانی سخت افزاری و نرم افزاری",
+        "titleEn": "Network / DevOps / IT admin / Software Support and Deployment"
+    },
+    {
+        "urlTitle": "data-science",
+        "id": 260,
+        "title": "علوم داده / هوش مصنوعی",
+        "titleFa": "علوم داده / هوش مصنوعی",
+        "titleEn": "Data Science / AI"
+    },
+    {
+        "urlTitle": "game",
+        "id": 193,
+        "title": "طراحی بازی",
+        "titleFa": "طراحی بازی",
+        "titleEn": "Game Design"
+    },
+    {
+        "urlTitle": "graphics",
+        "id": 13,
+        "title": "طراحی گرافیک / طراحی انیمیشن و موشن گرافیک",
+        "titleFa": "طراحی گرافیک / طراحی انیمیشن و موشن گرافیک",
+        "titleEn": "Graphic Designer / Motion Graphic Designer"
+    },
+    {
+        "urlTitle": "cloth-and-jewelry-design",
+        "id": 262,
+        "title": "طراحی لباس / طراحی طلا و جواهر",
+        "titleFa": "طراحی لباس / طراحی طلا و جواهر",
+        "titleEn": "Cloth Design / Jewelry Design"
+    },
+    {
+        "urlTitle": "industrial-design",
+        "id": 263,
+        "title": "طراحی صنعتی / نقشه کشی صنعتی",
+        "titleFa": "طراحی صنعتی / نقشه کشی صنعتی",
+        "titleEn": "Industrial Design"
+    },
+    {
+        "urlTitle": "photography",
+        "id": 264,
+        "title": "عکاسی",
+        "titleFa": "عکاسی",
+        "titleEn": "Photography"
+    },
+    {
+        "urlTitle": "film-cinema",
+        "id": 265,
+        "title": "مشاغل حوزه فیلم و سینما",
+        "titleFa": "مشاغل حوزه فیلم و سینما",
+        "titleEn": "Film & Cinema"
+    },
+    {
+        "urlTitle": "sound-design",
+        "id": 194,
+        "title": "طراحی موسیقی و صدا",
+        "titleFa": "طراحی موسیقی و صدا",
+        "titleEn": "Music and Sound Design"
+    },
+    {
+        "urlTitle": "ui-ux",
+        "id": 192,
+        "title": "طراحی رابط و تجربه کاربری (UI/UX)",
+        "titleFa": "طراحی رابط و تجربه کاربری (UI/UX)",
+        "titleEn": "UI - UX Design"
+    },
+    {
+        "urlTitle": "product-manager",
+        "id": 266,
+        "title": "مدیر محصول / مالک محصول",
+        "titleFa": "مدیر محصول / مالک محصول",
+        "titleEn": "Product Manager / Product Owner"
+    },
+    {
+        "urlTitle": "business-development",
+        "id": 35,
+        "title": "تحلیل و توسعه کسب و کار / استراتژی / برنامه ریزی",
+        "titleFa": "تحلیل و توسعه کسب و کار / استراتژی / برنامه ریزی",
+        "titleEn": "Business Development And Analysis / Strategy / Planning"
+    },
+    {
+        "urlTitle": "industrial",
+        "id": 24,
+        "title": "مهندسی صنایع / مدیریت تولید / مدیریت پروژه / مدیریت عملیات",
+        "titleFa": "مهندسی صنایع / مدیریت تولید / مدیریت پروژه / مدیریت عملیات",
+        "titleEn": "Industrial Engineering / Manufacturing / Operations / Project Management"
+    },
+    {
+        "urlTitle": "purchasing",
+        "id": 25,
+        "title": "خرید / تدارکات",
+        "titleFa": "خرید / تدارکات",
+        "titleEn": "Purchasing / Procurement"
+    },
+    {
+        "urlTitle": "commerce",
+        "id": 26,
+        "title": "بازرگانی / تجارت",
+        "titleFa": "بازرگانی / تجارت",
+        "titleEn": "Commercial Affairs / Trading"
+    },
+    {
+        "urlTitle": "warehouse",
+        "id": 178,
+        "title": "لجستیک / حمل و نقل / انبارداری",
+        "titleFa": "لجستیک / حمل و نقل / انبارداری",
+        "titleEn": "Transport / Logistics / Warehousing"
+    },
+    {
+        "urlTitle": "driver",
+        "id": 204,
+        "title": "راننده / مسئول توزیع / پیک موتوری",
+        "titleFa": "راننده / مسئول توزیع / پیک موتوری",
+        "titleEn": "Delivery / Driver"
+    },
+    {
+        "urlTitle": "accounting",
+        "id": 8,
+        "title": "مالی و حسابداری",
+        "titleFa": "مالی و حسابداری",
+        "titleEn": "Accounting / Finance"
+    },
+    {
+        "urlTitle": "trader",
+        "id": 267,
+        "title": "معامله گر و تحلیل گر بازارهای مالی",
+        "titleFa": "معامله گر و تحلیل گر بازارهای مالی",
+        "titleEn": "Financial Market Trader and Analyst"
+    },
+    {
+        "urlTitle": "collecting-agent",
+        "id": 205,
+        "title": "تحصیل دار / کارپرداز",
+        "titleFa": "تحصیل دار / کارپرداز",
+        "titleEn": "Collecting Agent"
+    },
+    {
+        "urlTitle": "secretary",
+        "id": 10,
+        "title": "مسئول دفتر / کارمند اداری و ثبت اطلاعات / تایپیست",
+        "titleFa": "مسئول دفتر / کارمند اداری و ثبت اطلاعات / تایپیست",
+        "titleEn": "Administration / Secretarial / Operator"
+    },
+    {
+        "urlTitle": "human-resources",
+        "id": 28,
+        "title": "منابع انسانی",
+        "titleFa": "منابع انسانی",
+        "titleEn": "Human Resources"
+    },
+    {
+        "urlTitle": "executive-manager",
+        "id": 12,
+        "title": "مدیر اجرایی / مدیر داخلی",
+        "titleFa": "مدیر اجرایی / مدیر داخلی",
+        "titleEn": "Executive Manager"
+    },
+    {
+        "urlTitle": "ceo",
+        "id": 177,
+        "title": "مدیرعامل / مدیر کارخانه",
+        "titleFa": "مدیرعامل / مدیر کارخانه",
+        "titleEn": "CEO / Business Head / Factory Manager"
+    },
+    {
+        "urlTitle": "electrical-engineering",
+        "id": 20,
+        "title": "مهندسی برق",
+        "titleFa": "مهندسی برق",
+        "titleEn": "Engineering - Electrical"
+    },
+    {
+        "urlTitle": "biomedical",
+        "id": 23,
+        "title": "مهندسی پزشکی",
+        "titleFa": "مهندسی پزشکی",
+        "titleEn": "Engineering - Biomedical"
+    },
+    {
+        "urlTitle": "mechanical",
+        "id": 21,
+        "title": "مهندسی مکانیک / مهندسی هوا و فضا",
+        "titleFa": "مهندسی مکانیک / مهندسی هوا و فضا",
+        "titleEn": "Engineering - Mechanical & Aerospace"
+    },
+    {
+        "urlTitle": "food",
+        "id": 17,
+        "title": "مهندسی صنایع غذایی",
+        "titleFa": "مهندسی صنایع غذایی",
+        "titleEn": "Food Industry Engineering"
+    },
+    {
+        "urlTitle": "petroleum",
+        "id": 16,
+        "title": "مهندسی شیمی / مهندسی نفت و گاز",
+        "titleFa": "مهندسی شیمی / مهندسی نفت و گاز",
+        "titleEn": "Chemical Engineering / Oil & Gas Engineering"
+    },
+    {
+        "urlTitle": "energy",
+        "id": 154,
+        "title": "مهندسی انرژی / مهندسی هسته ای",
+        "titleFa": "مهندسی انرژی / مهندسی هسته ای",
+        "titleEn": "Energy Engineering / Nuclear Engineering"
+    },
+    {
+        "urlTitle": "hse",
+        "id": 32,
+        "title": "بهداشت، ایمنی و محیط زیست (HSE)",
+        "titleFa": "بهداشت، ایمنی و محیط زیست (HSE)",
+        "titleEn": "Safety / Security / Environment (HSE)"
+    },
+    {
+        "urlTitle": "civil",
+        "id": 18,
+        "title": "مهندسی عمران",
+        "titleFa": "مهندسی عمران",
+        "titleEn": "Engineering - Civil"
+    },
+    {
+        "urlTitle": "architecture",
+        "id": 19,
+        "title": "مهندسی معماری و شهرسازی",
+        "titleFa": "مهندسی معماری و شهرسازی",
+        "titleEn": "Engineering - Architecture"
+    },
+    {
+        "urlTitle": "mining",
+        "id": 22,
+        "title": "مهندسی معدن / زمین شناسی",
+        "titleFa": "مهندسی معدن / زمین شناسی",
+        "titleEn": "Mining Engineering & Geology"
+    },
+    {
+        "urlTitle": "metallurgy-engineering",
+        "id": 268,
+        "title": "مهندسی مواد و متالورژی",
+        "titleFa": "مهندسی مواد و متالورژی",
+        "titleEn": "Metallurgy Engineering"
+    },
+    {
+        "urlTitle": "textile",
+        "id": 150,
+        "title": "مهندسی نساجی",
+        "titleFa": "مهندسی نساجی",
+        "titleEn": "Textile Engineering"
+    },
+    {
+        "urlTitle": "polymer-engineering",
+        "id": 269,
+        "title": "مهندسی پلیمر",
+        "titleFa": "مهندسی پلیمر",
+        "titleEn": "Polymer Engineering"
+    },
+    {
+        "urlTitle": "agriculture",
+        "id": 15,
+        "title": "مهندسی کشاورزی / علوم دامی",
+        "titleFa": "مهندسی کشاورزی / علوم دامی",
+        "titleEn": "Engineering - Agriculture / Animal Science"
+    },
+    {
+        "urlTitle": "biology",
+        "id": 151,
+        "title": "زیست شناسی / علوم زیستی / علوم آزمایشگاهی",
+        "titleFa": "زیست شناسی / علوم زیستی / علوم آزمایشگاهی",
+        "titleEn": "Biology / Life Sciences / Laboratory Sciences"
+    },
+    {
+        "urlTitle": "pharmacy",
+        "id": 27,
+        "title": "داروسازی / بیوشیمی / شیمی",
+        "titleFa": "داروسازی / بیوشیمی / شیمی",
+        "titleEn": "Pharmacy / Biochemistry / Chemistry"
+    },
+    {
+        "urlTitle": "physician-dentist-vet",
+        "id": 270,
+        "title": "پزشک / دندانپزشک / دامپزشک",
+        "titleFa": "پزشک / دندانپزشک / دامپزشک",
+        "titleEn": "Physician / Dentist / Vet"
+    },
+    {
+        "urlTitle": "nurse",
+        "id": 153,
+        "title": "پرستار و بهیار / تکنسین حوزه سلامت و درمان / دستیار پزشک",
+        "titleFa": "پرستار و بهیار / تکنسین حوزه سلامت و درمان / دستیار پزشک",
+        "titleEn": "Nursing"
+    },
+    {
+        "urlTitle": "aged-and-child-care",
+        "id": 271,
+        "title": "پرستار سالمند / پرستار کودک",
+        "titleFa": "پرستار سالمند / پرستار کودک",
+        "titleEn": "Aged & Child Care"
+    },
+    {
+        "urlTitle": "psychology",
+        "id": 147,
+        "title": "روانشناسی / مشاوره / علوم اجتماعی",
+        "titleFa": "روانشناسی / مشاوره / علوم اجتماعی",
+        "titleEn": "Psychology / Counseling / Social"
+    },
+    {
+        "urlTitle": "legal",
+        "id": 31,
+        "title": "حقوقی",
+        "titleFa": "حقوقی",
+        "titleEn": "Legal"
+    },
+    {
+        "urlTitle": "public-relations",
+        "id": 272,
+        "title": "روابط عمومی",
+        "titleFa": "روابط عمومی",
+        "titleEn": "Public Relations"
+    },
+    {
+        "urlTitle": "journalist",
+        "id": 175,
+        "title": "خبرنگار / روزنامه نگار",
+        "titleFa": "خبرنگار / روزنامه نگار",
+        "titleEn": "Journalist"
+    },
+    {
+        "urlTitle": "education",
+        "id": 14,
+        "title": "آموزش / تدریس",
+        "titleFa": "آموزش / تدریس",
+        "titleEn": "Education / Teaching"
+    },
+    {
+        "urlTitle": "research",
+        "id": 149,
+        "title": "پژوهش",
+        "titleFa": "پژوهش",
+        "titleEn": "Research"
+    },
+    {
+        "urlTitle": "security-guard",
+        "id": 208,
+        "title": "نگهبان",
+        "titleFa": "نگهبان",
+        "titleEn": "Security Guard"
+    },
+    {
+        "urlTitle": "labourer",
+        "id": 207,
+        "title": "کارگر ساده / نیروی خدماتی",
+        "titleFa": "کارگر ساده / نیروی خدماتی",
+        "titleEn": "Labourer / Cleaner"
+    },
+    {
+        "urlTitle": "technician",
+        "id": 206,
+        "title": "تکنسین فنی / تعمیرکار / کارگر ماهر",
+        "titleFa": "تکنسین فنی / تعمیرکار / کارگر ماهر",
+        "titleEn": "Technician"
+    },
+    {
+        "urlTitle": "skilled-workers-construction",
+        "id": 276,
+        "title": "تخصص های ساختمانی (بنّا / گچ کار / کاشی کار و ...)",
+        "titleFa": "تخصص های ساختمانی (بنّا / گچ کار / کاشی کار و ...)",
+        "titleEn": "Skilled workers in construction"
+    },
+    {
+        "urlTitle": "carpenter",
+        "id": 277,
+        "title": "نجار / MDF کار / کابینت کار / مبل ساز / رنگ کار چوب",
+        "titleFa": "نجار / MDF کار / کابینت کار / مبل ساز / رنگ کار چوب",
+        "titleEn": "Carpenter"
+    },
+    {
+        "urlTitle": "barber",
+        "id": 278,
+        "title": "آرایشگر",
+        "titleFa": "آرایشگر",
+        "titleEn": "Barber"
+    },
+    {
+        "urlTitle": "pastry-chef",
+        "id": 279,
+        "title": "قناد و شیرینی پز",
+        "titleFa": "قناد و شیرینی پز",
+        "titleEn": "Pastry Chef"
+    },
+    {
+        "urlTitle": "carpet-weaver",
+        "id": 280,
+        "title": "بافنده فرش (قالی باف)",
+        "titleFa": "بافنده فرش (قالی باف)",
+        "titleEn": "Carpet Weaver"
+    },
+    {
+        "urlTitle": "baker",
+        "id": 281,
+        "title": "نانوا",
+        "titleFa": "نانوا",
+        "titleEn": "Baker"
+    },
+    {
+        "urlTitle": "locksmith",
+        "id": 282,
+        "title": "قفل و کلیدساز",
+        "titleFa": "قفل و کلیدساز",
+        "titleEn": "Locksmith"
+    },
+    {
+        "urlTitle": "butcher",
+        "id": 283,
+        "title": "قصاب",
+        "titleFa": "قصاب",
+        "titleEn": "Butcher"
+    },
+    {
+        "urlTitle": "shoemaker",
+        "id": 284,
+        "title": "کفاش",
+        "titleFa": "کفاش",
+        "titleEn": "Shoemaker"
+    },
+    {
+        "urlTitle": "tailor",
+        "id": 285,
+        "title": "خیاط",
+        "titleFa": "خیاط",
+        "titleEn": "Tailor"
+    },
+    {
+        "urlTitle": "chef",
+        "id": 286,
+        "title": "آشپز",
+        "titleFa": "آشپز",
+        "titleEn": "Chef"
+    },
+    {
+        "urlTitle": "barista-and-waitor",
+        "id": 287,
+        "title": "باریستا / کافی من / گارسون",
+        "titleFa": "باریستا / کافی من / گارسون",
+        "titleEn": "Barista / Waitor"
+    },
+    {
+        "urlTitle": "tour-guide",
+        "id": 11,
+        "title": "راهنمای تور / مهماندار",
+        "titleFa": "راهنمای تور / مهماندار",
+        "titleEn": "Tour guide / Attendant"
+    },
+    {
+        "urlTitle": "physical-education",
+        "id": 180,
+        "title": "ورزش / تربیت بدنی / تغذیه",
+        "titleFa": "ورزش / تربیت بدنی / تغذیه",
+        "titleEn": "Physical education / Nutrition"
+    },
+    {
+        "urlTitle": "history",
+        "id": 156,
+        "title": "تاریخ / جغرافیا / باستان شناسی",
+        "titleFa": "تاریخ / جغرافیا / باستان شناسی",
+        "titleEn": "History / Geography / Archeology"
+    }
+]

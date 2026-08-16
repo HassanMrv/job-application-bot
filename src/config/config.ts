@@ -72,6 +72,7 @@ export const config = {
           accessToken: requiredEnv("JOBVISION_ACCESS_TOKEN").replace(/^Bearer\s+/i, ""),
           clientId: requiredEnv("JOBVISION_CLIENT_ID"),
           webAppVersion: stringEnv("JOBVISION_WEB_APP_VERSION", "19.0.153"),
+          jobCategoryUrlTitle: stringEnv("jobCategoryUrlTitle", ""),
         }
       : null,
 } as const;

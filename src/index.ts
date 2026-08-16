@@ -23,6 +23,7 @@ async function main(): Promise<void> {
       pageSize: config.bot.pageSize,
       maxPages: config.bot.maxPages,
       requestDelayMs: config.bot.requestDelayMs,
+      jobCategoryUrlTitle: config.jobvision?.jobCategoryUrlTitle ?? null,
     },
   });
   let fatalError: unknown;

@@ -22,7 +22,7 @@ export interface Job extends JobSummary {
   raw: unknown;
 }
 
-export interface JobSearchQuery {
+export interface jobCategoryUrlTitleJobSearchQuery {
   keywords: string[];
   pageSize: number;
   maxPages: number;

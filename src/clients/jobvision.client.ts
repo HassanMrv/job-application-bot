@@ -13,14 +13,17 @@ import type {
 
 export class JobVisionClient {
   private readonly client: AxiosInstance;
+  private readonly jobCategoryUrlTitle: string;
 
   constructor(options: {
     baseURL: string;
     accessToken: string;
     clientId: string;
     webAppVersion: string;
+    jobCategoryUrlTitle: string;
     client?: AxiosInstance;
   }) {
+    this.jobCategoryUrlTitle = options.jobCategoryUrlTitle;
     this.client =
       options.client ??
       axios.create({
@@ -41,6 +44,7 @@ export class JobVisionClient {
     const response = await this.client.post<JobVisionListResponse>(
       "/api/v1/JobPost/List",
       {
+        jobCategoryUrlTitle: this.jobCategoryUrlTitle,
         keyword: request.keyword,
         requestedPage: request.requestedPage ?? 1,
         pageSize: request.pageSize ?? 30,
